@@ -7,7 +7,7 @@
 //   )=*=(
 
 window.onload = setupRefresh;
-var imageAddr = "poodle.jpg" + "?n=" + Math.random();
+var imageAddr = "http://upload.wikimedia.org/wikipedia/commons/a/a6/Standard_Poodle_portrait.jpg" + "?n=" + Math.random();
 var startTime, endTime;
 var downloadSize = 6000271; // number of kittehs. [needs citation]
 var download = new Image();
@@ -33,19 +33,19 @@ function showResults () {
 	//speedKbps + " kbps\n" +
 	//speedMbps + " Mbps\n");
 	//speedMbps = 99;
-	if(speedMbps<100)
+	if(speedMbps<4)
 		{
 		//you no haz kittehs
 		var container = document.getElementById("imageContainer");
 		container.appendChild(download);
-		document.getElementById('some_text').innerHTML = speedMbps+" Mpbs - You no haz kittehs.";
+		document.getElementById('some_text').innerHTML = speedMbps+" Mbps - You no haz kittehs.";
 		}
 	else
 		{
 		//you haz kittehs
 		var container = document.getElementById("imageContainer");
 		container.appendChild(img);
-		document.getElementById('some_text').innerHTML = speedMbps+" Mpbs - You haz kittehs.";
+		document.getElementById('some_text').innerHTML = speedMbps+" Mbps - You haz kittehs.";
 		}
 }
 
