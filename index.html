@@ -1,1 +1,88 @@
-<html><body><a href="http://images2.fanpop.com/images/photos/5800000/happy-kitten-kittens-5890512-1600-1200.jpg"><img height="800" src="http://images2.fanpop.com/images/photos/5800000/happy-kitten-kittens-5890512-1600-1200.jpg"></a></img></body></html>
+<html>
+<script type="text/javascript">
+
+//  |\___/|
+// =) ^Y^ (=   I'm in ur codez.
+//  \  ^  /    Ignoring ur best practicez.
+//   )=*=(
+
+	window.onload = setupRefresh;
+	var img = document.createElement("img");
+	var images = new Array();
+	var a = 1;
+
+	function setupRefresh() {
+		setInterval("refreshFrame();", 1000);
+	}
+	
+	function refreshFrame() {
+		if(a >= images.length){
+			a=0;
+		}else{
+			img.setAttribute("src",""+images[a]);
+			img.setAttribute("height","600");
+			img.setAttribute("width","600");
+			a++;
+		}
+	}
+
+img.onload = function(e) {
+	var container = document.getElementById("imageContainer");
+	container.appendChild(e.target);
+}
+img.setAttribute("src","img.jpg");
+img.setAttribute("height","600");
+img.setAttribute("width","600");
+
+images.push("img.jpg");
+images.push("http://o.onionstatic.com/images/7/7954/original/700.hq.jpg");
+images.push("http://www.deshow.net/d/file/animal/2009-07/cute-kitten-631-2.jpg");
+images.push("http://us.123rf.com/400wm/400/400/grivet/grivet1007/grivet100700006/7283526-adorable-yawning-kitten-and-looking-foward.jpg");
+images.push("http://www.warrenphotographic.co.uk/photography/bigs/27878-Tabby-kitten-white-background.jpg");
+images.push("http://us.123rf.com/400wm/400/400/podlesnova/podlesnova0906/podlesnova090600034/5117393-small-red-furry-kitten-with-blue-eyes.jpg");
+images.push("http://3.bp.blogspot.com/-4kBvHvCJnOY/T-iKBteyTKI/AAAAAAAABLw/CwDU11DBqWc/s1600/kitten.jpeg");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+//images.push("");
+
+</script>
+<body>
+<div id="imageContainer"></div>
+</body>
+</html>
