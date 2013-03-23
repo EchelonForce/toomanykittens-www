@@ -6,34 +6,66 @@
 //  \  ^  /    Ignoring ur best practicez.
 //   )=*=(
 
-	window.onload = setupRefresh;
-	var img = document.createElement("img");
-	var images = new Array();
-	var a = 1;
-
-	function setupRefresh() {
-		setInterval("refreshFrame();", 1000);
-	}
-	
-	function refreshFrame() {
-		if(a >= images.length){
-			a=0;
-		}else{
-			img.setAttribute("src",""+images[a]);
-			img.setAttribute("height","600");
-			img.setAttribute("width","600");
-			a++;
-		}
-	}
-
-img.onload = function(e) {
-	var container = document.getElementById("imageContainer");
-	container.appendChild(e.target);
+window.onload = setupRefresh;
+var imageAddr = "poodle.jpg" + "?n=" + Math.random();
+var startTime, endTime;
+var downloadSize = 6000271; // number of kittehs. [needs citation]
+var download = new Image();
+var speedBps, speedKbps, speedMbps;
+var img = document.createElement("img");
+var images = new Array();
+var a = 1;
+//finish speed test after image loadz
+download.onload = function(e) {
+endTime = (new Date()).getTime();
+showResults ();
 }
-img.setAttribute("src","img.jpg");
-img.setAttribute("height","600");
-img.setAttribute("width","600");
 
+//show result of complex highly accurate speed test
+function showResults () {
+	var duration = Math.round((endTime - startTime) / 1000);
+	var bitsLoaded = downloadSize * 8;
+	var speedBps = Math.round(bitsLoaded / duration);
+	var speedKbps = (speedBps / 1024).toFixed(2);
+	var speedMbps = (speedKbps / 1024).toFixed(2);
+	//alert ("Your connection speed is: \n" +
+	//speedBps + " bps\n" +
+	//speedKbps + " kbps\n" +
+	//speedMbps + " Mbps\n");
+	//speedMbps = 99;
+	if(speedMbps<100)
+		{
+		//you no haz kittehs
+		var container = document.getElementById("imageContainer");
+		container.appendChild(download);
+		document.getElementById('some_text').innerHTML = speedMbps+" Mpbs - You no haz kittehs.";
+		}
+	else
+		{
+		//you haz kittehs
+		var container = document.getElementById("imageContainer");
+		container.appendChild(img);
+		document.getElementById('some_text').innerHTML = speedMbps+" Mpbs - You haz kittehs.";
+		}
+}
+
+//setup periodic refresh...for moar kittehs when allowed.
+function setupRefresh() {
+	setInterval("refreshFrame();", 1000);
+}
+//periodic function called to get moar kitteh goodness.
+function refreshFrame()
+	{
+	if(a >= images.length){
+		a=0;
+	}else{
+		img.setAttribute("src",""+images[a]);
+		img.setAttribute("height","500");
+		img.setAttribute("width","500");
+		a++;
+	}
+}
+//some images in der array.
 images.push("img.jpg");
 images.push("http://o.onionstatic.com/images/7/7954/original/700.hq.jpg");
 images.push("http://www.deshow.net/d/file/animal/2009-07/cute-kitten-631-2.jpg");
@@ -41,48 +73,14 @@ images.push("http://us.123rf.com/400wm/400/400/grivet/grivet1007/grivet100700006
 images.push("http://www.warrenphotographic.co.uk/photography/bigs/27878-Tabby-kitten-white-background.jpg");
 images.push("http://us.123rf.com/400wm/400/400/podlesnova/podlesnova0906/podlesnova090600034/5117393-small-red-furry-kitten-with-blue-eyes.jpg");
 images.push("http://3.bp.blogspot.com/-4kBvHvCJnOY/T-iKBteyTKI/AAAAAAAABLw/CwDU11DBqWc/s1600/kitten.jpeg");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
-//images.push("");
+// Start test
+startTime = (new Date()).getTime();
+download.src = imageAddr;
+download.setAttribute("height","500");
+download.setAttribute("width","500");
 
 </script>
 <body>
-<div id="imageContainer"></div>
+<div id="imageContainer"></div><div style="font-size:50px" id="some_text">asdfasdf</div>
 </body>
 </html>
